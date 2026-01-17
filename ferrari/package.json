@@ -1,0 +1,26 @@
+{
+  "name": "ferrari-storytelling",
+  "version": "1.0.0",
+  "description": "Ferrari Storytelling Website - A premium scrolling experience",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000",
+    "build": "echo Build complete",
+    "lighthouse": "npx lighthouse http://localhost:3000 --view"
+  },
+  "keywords": [
+    "ferrari",
+    "storytelling",
+    "scroll-animation",
+    "three.js",
+    "gsap"
+  ],
+  "author": "Rekta",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
