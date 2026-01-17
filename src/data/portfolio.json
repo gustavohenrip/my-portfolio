@@ -1,0 +1,71 @@
+{
+  "profile": {
+    "name": "Monayzera",
+    "role": "Full-Stack Developer | Flutter & ReactJS",
+    "location": "Brazil",
+    "headline": "Transforming complex problems into fluid digital solutions.",
+    "summary": "Professional Front-End Developer with extensive experience in modern animation libraries including GSAP, Framer Motion, Three.js and React Three Fiber. Full-stack capabilities with complete backend development using Node.js, Python and databases. Specialized in Flutter for high-performance cross-platform mobile applications.",
+    "about": "Specialized Front-End Developer with deep expertise in creating immersive web experiences using cutting-edge animation technologies. Proficient in GSAP, Framer Motion, Lenis, Three.js, React Three Fiber, and WebGL for stunning visual effects. Complete backend experience with Node.js, Express, Python, FastAPI, and database management with MySQL and MongoDB. Mobile development specialist with Flutter and Dart for iOS and Android applications.",
+    "photo": "/images/profile.jpg",
+    "email": "gustavohpuhlmann@hotmail.com",
+    "linkedin": "https://www.linkedin.com/in/gustavohpuhlmann/",
+    "github": "https://github.com/gustavohenrip",
+    "instagram": "https://www.instagram.com/monayzera/"
+  },
+  "stats": {
+    "years_experience": "3+",
+    "projects_shipped": "20+",
+    "technologies": "10+",
+    "clients_happy": "15+"
+  },
+  "highlights": [
+    {
+      "title": "Mobile (Flutter)",
+      "description": "Expert in creating fluid interfaces with efficient state management and API integration."
+    },
+    {
+      "title": "Web (ReactJS & NodeJS)",
+      "description": "Focus on reusable components and end-to-end scalable systems."
+    },
+    {
+      "title": "Problem Solving",
+      "description": "Real market experience developing automation solutions and specialized technical support."
+    },
+    {
+      "title": "Technical Foundation",
+      "description": "Advanced knowledge in Python, SQL, and agile methodologies."
+    }
+  ],
+  "skills": [
+    { "category": "Mobile", "tech": ["Flutter", "Dart", "Android", "iOS"] },
+    { "category": "Frontend", "tech": ["ReactJS", "Next.js", "TypeScript", "Tailwind"] },
+    { "category": "Backend", "tech": ["NodeJS", "Python", "MySQL", "REST APIs"] },
+    { "category": "Tools", "tech": ["Git", "Docker", "Figma", "Firebase"] }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "title": "Ferrari Showcase",
+      "type": "Immersive Brand Experience",
+      "description": "High-impact Ferrari experience with cinematic storytelling, smooth transitions, and premium visuals.",
+      "tech": ["HTML", "CSS", "JavaScript", "Animations"],
+      "year": "2026",
+      "image": "/images/Ferrari Page Image.png",
+      "link": "/ferrari/index.html"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Developer",
+      "company": "Rekta Soluções",
+      "period": "Current",
+      "description": "Development of robust applications in Flutter for mobile and ReactJS/NodeJS for web. Creation of automation solutions and specialized technical support."
+    },
+    {
+      "role": "Full-Stack Developer",
+      "company": "Freelance Projects",
+      "period": "2022 - Present",
+      "description": "Development of web and mobile systems for various clients, from interfaces to complete backend integrations."
+    }
+  ]
+}
