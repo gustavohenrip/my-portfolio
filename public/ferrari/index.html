@@ -1,0 +1,1252 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Discover the legendary history of Ferrari since 1947. Explore iconic supercars, Formula 1 dominance, and the passion of the Prancing Horse through an immersive scrollytelling experience.">
+    <meta name="theme-color" content="#dc0000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ferrari | The Legend - Since 1947</title>
+    <link rel="icon" type="image/png" href="icons/ferrari-logo-5.png">
+    <link rel="shortcut icon" type="image/png" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="icons/ferrari-logo-5.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/ferrari-logo-5.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/ferrari-logo-5.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/ferrari-logo-5.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/ferrari-logo-5.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/ferrari-logo-5.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://commons.wikimedia.org" crossorigin>
+    <link rel="preconnect" href="https://logodownload.org" crossorigin>
+    <link rel="preconnect" href="https://www.charlesleclerc.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://commons.wikimedia.org">
+    <link rel="dns-prefetch" href="https://logodownload.org">
+    <link rel="dns-prefetch" href="https://www.charlesleclerc.com">
+    
+    <link rel="preload" as="image" href="images/Leclerc-Racing-The-Start-01-Entering-2025.jpg" fetchpriority="high">
+    <link rel="preload" as="video" href="https://www.charlesleclerc.com/wp-content/uploads/2025/02/fd4a7fd7-c51386be.mp4" type="video/mp4">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></noscript>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;margin:0}
+        #preloader{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(20,20,20,1) 0%,rgba(8,8,8,1) 100%)}
+    </style>
+</head>
+<body data-loading="hard">
+    
+    <div id="preloader">
+        <div class="preloader-bg"></div>
+        <div class="preloader-reveal"></div>
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="icons/ferrari-logo-5.png" alt="Ferrari Logo" class="ferrari-logo-img" width="140" height="191" fetchpriority="high">
+            </div>
+            <div class="preloader-text-reveal">
+                <div class="preloader-title">
+                    <span class="char">F</span>
+                    <span class="char">E</span>
+                    <span class="char">R</span>
+                    <span class="char">R</span>
+                    <span class="char">A</span>
+                    <span class="char">R</span>
+                    <span class="char">I</span>
+                </div>
+            </div>
+            <div class="preloader-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span class="progress-number">0</span><span class="progress-percent">%</span>
+                </div>
+            </div>
+            <div class="preloader-tagline">IL CAVALLINO RAMPANTE</div>
+        </div>
+        <div class="preloader-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+    <div id="noise-overlay"></div>
+    
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+        <div class="cursor-text">EXPLORE</div>
+        <div class="cursor-trail"></div>
+    </div>
+    
+    <div id="magnetic-cursor"></div>
+    
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-logo">
+                <img src="icons/ferrari-logo-5.png" alt="Ferrari Logo" class="nav-logo-img" width="36" height="49" loading="lazy">
+                <div class="nav-logo-text">
+                    <span class="nav-brand">FERRARI</span>
+                    <span class="nav-sub">EST. 1947</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-center">
+            <div class="nav-progress">
+                <div class="nav-progress-fill"></div>
+            </div>
+            <div class="nav-chapter">
+                <span class="chapter-current">01</span>
+                <span class="chapter-sep">/</span>
+                <span class="chapter-total">05</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-menu-btn magnetic" id="menuBtn">
+                <span class="menu-text">MENU</span>
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+    
+    <div id="fullscreen-menu">
+        <div class="menu-bg">
+            <div class="menu-bg-layer"></div>
+            <div class="menu-bg-layer"></div>
+            <div class="menu-bg-layer"></div>
+        </div>
+        <div class="menu-content">
+            <div class="menu-main">
+                <div class="menu-links">
+                    <a href="#hero" class="menu-link" data-index="01">
+                        <span class="link-index">01</span>
+                        <span class="link-text">The Legend</span>
+                    </a>
+                    <a href="#timeline" class="menu-link" data-index="02">
+                        <span class="link-index">02</span>
+                        <span class="link-text">History</span>
+                    </a>
+                    <a href="#supercars" class="menu-link" data-index="03">
+                        <span class="link-index">03</span>
+                        <span class="link-text">Supercars</span>
+                    </a>
+                    <a href="#racing" class="menu-link" data-index="04">
+                        <span class="link-index">04</span>
+                        <span class="link-text">Formula 1</span>
+                    </a>
+                    <a href="#legacy" class="menu-link" data-index="05">
+                        <span class="link-index">05</span>
+                        <span class="link-text">Legacy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-footer">
+                <div class="menu-social">
+                    <a href="https://instagram.com/ferrari" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1"></circle>
+                            </svg>
+                        </span>
+                        <span class="social-label">Instagram</span>
+                    </a>
+                    <a href="https://twitter.com/scuderiaferrari" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4l16 16M20 4L4 20"></path>
+                            </svg>
+                        </span>
+                        <span class="social-label">Twitter</span>
+                    </a>
+                    <a href="https://youtube.com/ferrari" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="18" height="10" rx="3"></rect>
+                                <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"></path>
+                            </svg>
+                        </span>
+                        <span class="social-label">YouTube</span>
+                    </a>
+                    <a href="https://facebook.com/ferrari" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M15 8h-2c-.6 0-1 .4-1 1v2h3l-.4 3H12v7H9v-7H7v-3h2V9c0-2.2 1.3-4 4-4h2v3z" fill="currentColor"></path>
+                            </svg>
+                        </span>
+                        <span class="social-label">Facebook</span>
+                    </a>
+                </div>
+                <div class="menu-info">
+                    <span>Maranello, Italia</span>
+                    <span>Since 1947</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main id="main-content">
+        
+        <section id="hero" class="section section-hero" data-section="1">
+            <div class="hero-bg">
+                <div class="hero-video-container">
+                    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/Leclerc-Racing-The-Start-01-Entering-2025.jpg" fetchpriority="high">
+                        <source src="https://www.charlesleclerc.com/wp-content/uploads/2025/02/fd4a7fd7-c51386be.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-grain"></div>
+                <div class="hero-vignette"></div>
+            </div>
+            
+            <div class="hero-parallax-elements">
+                <div class="parallax-shape shape-1"></div>
+                <div class="parallax-shape shape-2"></div>
+                <div class="parallax-shape shape-3"></div>
+                <div class="parallax-line line-1"></div>
+                <div class="parallax-line line-2"></div>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-top">
+                    <div class="hero-location">
+                        <span class="location-line"></span>
+                        <span class="location-text" data-splitting>MARANELLO, ITALIA</span>
+                        <span class="location-line"></span>
+                    </div>
+                </div>
+                
+                <div class="hero-center">
+                    <div class="hero-title-container">
+                        <div class="hero-bg-text" data-speed="0.5">FERRARI</div>
+                        <h1 class="hero-title">
+                            <span class="title-line title-overflow"><span class="title-word" data-animation="slide-up">THE</span></span>
+                            <span class="title-line title-overflow"><span class="title-word title-accent" data-animation="slide-up">LEGEND</span></span>
+                        </h1>
+                        <div class="hero-title-decoration">
+                            <span class="decoration-line"></span>
+                            <span class="decoration-year">1947</span>
+                            <span class="decoration-line"></span>
+                        </div>
+                    </div>
+                    <p class="hero-subtitle" data-animation="fade-up">Nearly a century of speed, passion, and Italian excellence. The complete story of the Prancing Horse.</p>
+                </div>
+                
+                <div class="hero-bottom">
+                    <div class="hero-quote" data-animation="fade-up">
+                        <div class="quote-decoration"></div>
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">I have never built a car that was not a Ferrari.</p>
+                        <span class="quote-author">Enzo Ferrari</span>
+                    </div>
+                    
+                    <div class="hero-scroll">
+                        <div class="hero-scroll-inner" data-animation="fade-up">
+                            <div class="scroll-indicator">
+                                <div class="scroll-mouse">
+                                    <div class="scroll-wheel"></div>
+                                </div>
+                            </div>
+                            <span class="scroll-text">SCROLL TO DISCOVER</span>
+                            <div class="scroll-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-year" data-animation="fade-up">
+                        <span class="year-label">FOUNDED</span>
+                        <span class="year-number">
+                            <span class="year-digit">1</span>
+                            <span class="year-digit">9</span>
+                            <span class="year-digit">4</span>
+                            <span class="year-digit">7</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll-progress">
+                <div class="scroll-progress-bar"></div>
+            </div>
+        </section>
+        
+        <section id="intro" class="section section-intro" data-section="1">
+            <div class="intro-bg-shapes">
+                <div class="intro-shape intro-shape-1"></div>
+                <div class="intro-shape intro-shape-2"></div>
+            </div>
+            
+            <div class="intro-container">
+                <div class="intro-header">
+                    <span class="section-label" data-animation="fade-up">
+                        <span class="label-number">01</span>
+                        <span class="label-line"></span>
+                        <span class="label-text">THE ORIGIN</span>
+                    </span>
+                </div>
+                
+                <div class="intro-origin-row">
+                    <div class="intro-origin-media" data-animation="fade-up">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 600px" alt="Ferrari 125 S - The first car to bear the Ferrari name, 1947" loading="lazy" decoding="async" fetchpriority="low" width="640" height="400">
+                    </div>
+                    <div class="intro-origin-text">
+                        <p class="intro-text" data-animation="fade-up">Born from the unyielding will of one man to dominate the track, the Cavallino Rampante represents the pinnacle of Italian engineering, passion, and speed.</p>
+                    </div>
+                </div>
+                
+                <div class="intro-content">
+                    <div class="intro-left">
+                        <h2 class="intro-title reveal-text">
+                            <span class="intro-title-line">More than</span>
+                            <span class="intro-title-line">a <em>marque</em>,</span>
+                            <span class="intro-title-line">a religion.</span>
+                        </h2>
+                        
+                        <div class="intro-image-reveal">
+                            <div class="image-mask">
+                                <img src="images/Leclerc-Motorsport-03-Quote.jpg" alt="Charles Leclerc representing Ferrari heritage and racing excellence" loading="lazy" decoding="async" fetchpriority="low" width="600" height="400">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-right">
+                        <p class="intro-text-secondary" data-animation="fade-up">Every Ferrari ever made carries the DNA of that first 125 S that emerged from the factory gates in 1947. It is not merely a car company; it is a testament to human ambition and the eternal pursuit of perfection.</p>
+                        
+                        <div class="intro-stats">
+                            <div class="stat-item" data-animation="counter">
+                                <div class="stat-number-wrapper">
+                                    <span class="stat-number" data-count="16">0</span>
+                                    <span class="stat-plus">+</span>
+                                </div>
+                                <span class="stat-label">Constructors' Titles</span>
+                                <div class="stat-line"></div>
+                            </div>
+                            <div class="stat-item" data-animation="counter">
+                                <div class="stat-number-wrapper">
+                                    <span class="stat-number" data-count="15">0</span>
+                                    <span class="stat-plus">+</span>
+                                </div>
+                                <span class="stat-label">Drivers' Titles</span>
+                                <div class="stat-line"></div>
+                            </div>
+                            <div class="stat-item" data-animation="counter">
+                                <div class="stat-number-wrapper">
+                                    <span class="stat-number" data-count="248">0</span>
+                                    <span class="stat-plus">+</span>
+                                </div>
+                                <span class="stat-label">Grand Prix Wins</span>
+                                <div class="stat-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="horizontal-text-scroll">
+                <div class="scroll-text-track">
+                    <span>VELOCITA</span>
+                    <span>PASSIONE</span>
+                    <span>ECCELLENZA</span>
+                    <span>VELOCITA</span>
+                    <span>PASSIONE</span>
+                    <span>ECCELLENZA</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="enzo-quote" class="section section-quote" data-section="1">
+            <div class="quote-bg">
+                <div class="quote-image-parallax">
+                    <img src="images/Leclerc-Motorsport-03-Quote.jpg" alt="Enzo Ferrari quote background - Racing passion" class="quote-image" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1080">
+                </div>
+                <div class="quote-overlay"></div>
+                <div class="quote-lines">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="quote-content">
+                <div class="quote-decoration-top"></div>
+                <span class="quote-icon">"</span>
+                <h2 class="quote-main reveal-text">
+                    <span class="quote-word">I</span>
+                    <span class="quote-word">could</span>
+                    <span class="quote-word">not</span>
+                    <span class="quote-word">live</span>
+                    <span class="quote-word">if</span>
+                    <span class="quote-word">I</span>
+                    <span class="quote-word">could</span>
+                    <span class="quote-word">not</span>
+                    <span class="quote-word highlight">race</span>
+                    <span class="quote-word">.</span>
+                </h2>
+                <div class="quote-author-block">
+                    <div class="author-image">
+                        <img src="images/Leclerc-Racing-The-Plan-01-Charles-with-engineers.jpg" alt="Enzo Ferrari - Founder of Scuderia Ferrari" loading="lazy" decoding="async" fetchpriority="low" width="60" height="60">
+                    </div>
+                    <div class="author-info">
+                        <span class="author-line"></span>
+                        <span class="author-name">ENZO FERRARI</span>
+                        <span class="author-years">1898 - 1988</span>
+                    </div>
+                </div>
+                <div class="quote-decoration-bottom"></div>
+            </div>
+            <div class="quote-floating-elements">
+                <div class="float-element float-1">1947</div>
+                <div class="float-element float-2">MARANELLO</div>
+                <div class="float-element float-3">ITALIA</div>
+            </div>
+        </section>
+        
+        <section id="timeline" class="section section-timeline" data-section="2">
+            <div class="timeline-bg-elements">
+                <div class="timeline-year-bg">HISTORY</div>
+                <div class="timeline-gradient-overlay"></div>
+            </div>
+            
+            <div class="timeline-header">
+                <span class="section-label section-label-center" data-animation="fade-up">
+                    <span class="label-number">02</span>
+                    <span class="label-line"></span>
+                    <span class="label-text">THROUGH THE YEARS</span>
+                </span>
+                <h2 class="timeline-title reveal-text">
+                    <span class="timeline-title-line">A Legacy</span>
+                    <span class="timeline-title-line">Written in <em>Speed</em></span>
+                </h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-navigation">
+                    <button class="timeline-nav-btn prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <div class="timeline-nav-years">
+                        <span class="nav-year active" data-year="1929">1929</span>
+                        <span class="nav-year" data-year="1947">1947</span>
+                        <span class="nav-year" data-year="1950">1950</span>
+                        <span class="nav-year" data-year="1962">1962</span>
+                        <span class="nav-year" data-year="1987">1987</span>
+                        <span class="nav-year" data-year="2000">2000</span>
+                        <span class="nav-year" data-year="2024">2024</span>
+                    </div>
+                    <button class="timeline-nav-btn next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="timeline-track">
+                    <div class="timeline-progress">
+                        <div class="timeline-progress-fill"></div>
+                        <div class="timeline-progress-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-items">
+                        <article class="timeline-item active" data-year="1929">
+                            <div class="timeline-marker">
+                                <span class="marker-year">1929</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alfa-Romeo-2900-Scuderia-Ferrari-maroon-fa-lr.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Alfa-Romeo-2900-Scuderia-Ferrari-maroon-fa-lr.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Alfa-Romeo-2900-Scuderia-Ferrari-maroon-fa-lr.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Alfa-Romeo-2900-Scuderia-Ferrari-maroon-fa-lr.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Alfa Romeo 2900 Scuderia Ferrari - The beginning of a racing legend in 1929" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">1929</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">THE BEGINNING</span>
+                                        <h3 class="card-title">Scuderia Ferrari Founded</h3>
+                                    </div>
+                                    <p class="card-text">Enzo Ferrari establishes Scuderia Ferrari as a racing team in Modena, initially to sponsor amateur drivers and provide racing support.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Modena, Italia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="1947">
+                            <div class="timeline-marker">
+                                <span class="marker-year">1947</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Ferrari 125 S - The first Ferrari car with 1.5L V12 engine" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">1947</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">THE FIRST</span>
+                                        <h3 class="card-title">The First Ferrari: 125 S</h3>
+                                    </div>
+                                    <p class="card-text">The 125 S becomes the first car to bear the Ferrari name. Powered by a 1.5L V12 engine, it marks the birth of an automotive legend.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Maranello, Italia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="1950">
+                            <div class="timeline-marker">
+                                <span class="marker-year">1950</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/GPitaliaTO1948Ferrari1F1Sommer.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/GPitaliaTO1948Ferrari1F1Sommer.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/GPitaliaTO1948Ferrari1F1Sommer.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/GPitaliaTO1948Ferrari1F1Sommer.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Ferrari F1 entry at inaugural Formula 1 World Championship 1950" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">1950</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">FORMULA 1</span>
+                                        <h3 class="card-title">Formula 1 Entry</h3>
+                                    </div>
+                                    <p class="card-text">Ferrari enters the inaugural Formula 1 World Championship, beginning an unbroken participation that continues to this day.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Silverstone, UK</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="1962">
+                            <div class="timeline-marker">
+                                <span class="marker-year">1962</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Ferrari 250 GTO - The most valuable car ever sold, only 36 made" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">1962</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">ICON</span>
+                                        <h3 class="card-title">250 GTO: The Holy Grail</h3>
+                                    </div>
+                                    <p class="card-text">The 250 GTO debuts, destined to become the most valuable car ever sold. Only 36 were ever made, each a priceless masterpiece.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Maranello, Italia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="1987">
+                            <div class="timeline-marker">
+                                <span class="marker-year">1987</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Ferrari F40 - Enzos final masterpiece with 478HP twin-turbo" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">1987</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">MASTERPIECE</span>
+                                        <h3 class="card-title">F40: Enzo's Final Masterpiece</h3>
+                                    </div>
+                                    <p class="card-text">The F40 launches - raw, unfiltered power. It becomes the last car personally approved by Enzo Ferrari himself.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Maranello, Italia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="2000">
+                            <div class="timeline-marker">
+                                <span class="marker-year">2000</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F1-2000.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F1-2000.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F1-2000.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F1-2000.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Ferrari F1-2000 and Michael Schumacher championship winning car" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">2000</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">DOMINANCE</span>
+                                        <h3 class="card-title">The Schumacher Era</h3>
+                                    </div>
+                                    <p class="card-text">Michael Schumacher wins Ferrari's first Drivers' Championship in 21 years, starting an unprecedented era of dominance.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Suzuka, Japan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="timeline-item" data-year="2024">
+                            <div class="timeline-marker">
+                                <span class="marker-year">2024</span>
+                                <span class="marker-dot">
+                                    <span class="marker-pulse"></span>
+                                </span>
+                            </div>
+                            <div class="timeline-card">
+                                <div class="card-media">
+                                    <div class="card-image-wrapper">
+                                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024_Spanish_Grand_Prix_(53811183158)_(cropped).jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/2024_Spanish_Grand_Prix_(53811183158)_(cropped).jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/2024_Spanish_Grand_Prix_(53811183158)_(cropped).jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/2024_Spanish_Grand_Prix_(53811183158)_(cropped).jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 55vw, 400px" alt="Charles Leclerc Monaco Grand Prix 2024 victory celebration" loading="lazy" decoding="async" fetchpriority="low" width="400" height="240">
+                                        <div class="card-image-overlay"></div>
+                                    </div>
+                                    <div class="card-year-badge">2024</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-category">DREAM</span>
+                                        <h3 class="card-title">Leclerc's Monaco Dream</h3>
+                                    </div>
+                                    <p class="card-text">Charles Leclerc finally wins his home Grand Prix in Monaco, ending years of heartbreak for the Monegasque driver.</p>
+                                    <div class="card-footer">
+                                        <span class="card-location">Monte Carlo, Monaco</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-decorative-elements">
+                <div class="deco-circle deco-circle-1"></div>
+                <div class="deco-circle deco-circle-2"></div>
+                <div class="deco-line deco-line-1"></div>
+            </div>
+        </section>
+        
+        <section id="supercars" class="section section-supercars" data-section="3">
+            <div class="supercars-bg">
+                <div class="supercars-gradient"></div>
+                <div class="supercars-pattern"></div>
+            </div>
+            
+            <div class="supercars-header">
+                <span class="section-label section-label-center" data-animation="fade-up">
+                    <span class="label-number">03</span>
+                    <span class="label-line"></span>
+                    <span class="label-text">SUPERCARS</span>
+                </span>
+                <h2 class="supercars-title reveal-text">
+                    <span class="supercars-title-line">Engineering</span>
+                    <span class="supercars-title-line"><em>Masterpieces</em></span>
+                </h2>
+                <p class="supercars-description" data-animation="fade-up">Each Ferrari is a symphony of power, precision, and passion. Discover the machines that defined generations.</p>
+            </div>
+            
+            <div class="supercars-gallery">
+                <div class="gallery-wrapper">
+                    <div class="gallery-track">
+                        
+                        <article class="supercar-card" data-car="125s">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1947-05-11-Cortese-Ferrari125.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari 125 S - The origin with 118HP 1.5L V12 engine" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">1947</span>
+                                    <h3 class="car-name">125 S</h3>
+                                    <p class="car-desc">The origin. The first V12. The birth of a legend that would change automotive history forever.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">118</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">1.5L</span>
+                                            <span class="spec-label">V12</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">170</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="250gto">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1962_Ferrari_250_GTO_sn_4091GT,_front_right.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari 250 GTO - The Holy Grail with 302HP 3.0L V12" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">1962</span>
+                                    <h3 class="car-name">250 GTO</h3>
+                                    <p class="car-desc">The Holy Grail. The most valuable car ever sold. Only 36 were made, each one a priceless work of art.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">302</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">3.0L</span>
+                                            <span class="spec-label">V12</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">280</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="f40">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/1991_Ferrari_F40_front,_concours_6.1.19.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari F40 - Enzos final masterpiece with 478HP V8 Twin Turbo" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">1987</span>
+                                    <h3 class="car-name">F40</h3>
+                                    <p class="car-desc">Raw. Unfiltered. Enzo's final masterpiece. The last car personally approved by Il Commendatore himself.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">478</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">2.9L</span>
+                                            <span class="spec-label">V8 TT</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">324</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="f50">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F50_MarconiMuseum.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F50_MarconiMuseum.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F50_MarconiMuseum.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F50_MarconiMuseum.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari F50 - F1 for the road with 520HP 4.7L V12" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">1995</span>
+                                    <h3 class="car-name">F50</h3>
+                                    <p class="car-desc">F1 for the road. The V12 derived directly from the 1990 Formula 1 car, screaming to 8,500 RPM.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">520</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">4.7L</span>
+                                            <span class="spec-label">V12</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">325</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="enzo">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Enzo_Red.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Enzo_Red.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Enzo_Red.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Enzo_Red.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari Enzo - Named after the founder with 660HP 6.0L V12" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">2002</span>
+                                    <h3 class="car-name">Enzo</h3>
+                                    <p class="car-desc">Named after the founder. F1 technology meets road-legal performance in the ultimate tribute.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">660</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">6.0L</span>
+                                            <span class="spec-label">V12</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">350</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="laferrari">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LaFerrari_front.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/LaFerrari_front.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/LaFerrari_front.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/LaFerrari_front.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="LaFerrari - The first hybrid supercar with 963HP HY-KERS" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">2013</span>
+                                    <h3 class="car-name">LaFerrari</h3>
+                                    <p class="car-desc">The first hybrid. 963HP of pure evolution. HY-KERS technology brings F1 innovation to the streets.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">963</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">6.3L</span>
+                                            <span class="spec-label">V12 HY</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">350</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="supercar-card" data-car="sf90">
+                            <div class="card-inner">
+                                <div class="card-media">
+                                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2023_Ferrari_SF90_2.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/2023_Ferrari_SF90_2.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/2023_Ferrari_SF90_2.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/2023_Ferrari_SF90_2.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 400px" alt="Ferrari SF90 Stradale - Most powerful Ferrari with 1000HP PHEV" loading="lazy" decoding="async" fetchpriority="low" width="400" height="280">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-shine"></div>
+                                </div>
+                                <div class="card-info">
+                                    <span class="car-year">2019</span>
+                                    <h3 class="car-name">SF90 Stradale</h3>
+                                    <p class="car-desc">The most powerful Ferrari ever. 1,000 HP from three electric motors and a twin-turbo V8.</p>
+                                    <div class="car-specs">
+                                        <div class="spec">
+                                            <span class="spec-value">1000</span>
+                                            <span class="spec-label">HP</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">4.0L</span>
+                                            <span class="spec-label">V8 PHEV</span>
+                                        </div>
+                                        <div class="spec">
+                                            <span class="spec-value">340</span>
+                                            <span class="spec-label">KM/H</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-cta">
+                                        <span class="cta-line"></span>
+                                        <span class="cta-text">EXPLORE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                    </div>
+                </div>
+                
+                <div class="gallery-nav">
+                    <button class="gallery-btn gallery-prev magnetic" aria-label="Previous car">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <div class="gallery-counter">
+                        <span class="counter-current">01</span>
+                        <span class="counter-sep">/</span>
+                        <span class="counter-total">07</span>
+                    </div>
+                    <button class="gallery-btn gallery-next magnetic" aria-label="Next car">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="gallery-progress">
+                    <div class="gallery-progress-track">
+                        <div class="gallery-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="racing" class="section section-racing" data-section="4">
+            <div class="racing-bg">
+                <div class="racing-bg-text">F1</div>
+                <div class="racing-gradient"></div>
+                <div class="racing-stripes">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            
+            <div class="racing-content">
+                <div class="racing-header">
+                    <span class="section-label section-label-light" data-animation="fade-up">
+                        <span class="label-number">04</span>
+                        <span class="label-line"></span>
+                        <span class="label-text">FORMULA 1</span>
+                    </span>
+                    <h2 class="racing-title reveal-text">
+                        <span class="racing-title-line">The Most</span>
+                        <span class="racing-title-line">Successful Team</span>
+                        <span class="racing-title-line">In <em>History</em></span>
+                    </h2>
+                </div>
+                
+                <div class="racing-grid">
+                    <div class="racing-visual">
+                        <div class="racing-image-stack">
+                            <div class="stack-item stack-item-1" data-speed="0.8">
+                                <img src="images/Helmet_2025.jpg" alt="Charles Leclerc 2025 Ferrari racing helmet" loading="lazy" decoding="async" fetchpriority="low" width="700" height="350">
+                                <div class="stack-overlay"></div>
+                            </div>
+                            <div class="stack-item stack-item-2" data-speed="0.6">
+                                <img src="images/Leclerc-Racing-The-Start-02-Car-Setting-2025.jpg" alt="Ferrari F1 2025 car setup and configuration" loading="lazy" decoding="async" fetchpriority="low" width="600" height="300">
+                                <div class="stack-overlay"></div>
+                            </div>
+                            <div class="stack-item stack-item-3" data-speed="0.4">
+                                <img src="images/Leclerc-Ferrari-Gallery-05-2-Monza.jpg" alt="Ferrari celebration at Monza Grand Prix" loading="lazy" decoding="async" fetchpriority="low" width="500" height="250">
+                                <div class="stack-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="racing-driver-info">
+                            <div class="driver-badge">
+                                <span class="driver-flag"></span>
+                                <span class="driver-name">CHARLES LECLERC</span>
+                            </div>
+                            <span class="driver-number">#16</span>
+                        </div>
+                    </div>
+                    
+                    <div class="racing-info">
+                        <div class="racing-enzo-quote">
+                            <span class="enzo-quote-mark">"</span>
+                            <p class="enzo-quote-text">Ask a child to draw a car, and certainly he will draw it red.</p>
+                            <span class="enzo-quote-author">Enzo Ferrari</span>
+                        </div>
+                        
+                        <p class="racing-text" data-animation="fade-up">Every time a Ferrari driver climbs into the cockpit, millions of Tifosi around the world hold their breath. The scarlet red has been a symbol of excellence since 1950.</p>
+                        
+                        <div class="racing-achievements">
+                            <div class="achievement" data-animation="counter">
+                                <div class="achievement-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="achievement-number" data-count="16">0</span>
+                                <span class="achievement-label">Constructors'</span>
+                            </div>
+                            <div class="achievement" data-animation="counter">
+                                <div class="achievement-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="8" r="5"/>
+                                        <path d="M20 21a8 8 0 10-16 0"/>
+                                    </svg>
+                                </div>
+                                <span class="achievement-number" data-count="15">0</span>
+                                <span class="achievement-label">Drivers'</span>
+                            </div>
+                            <div class="achievement" data-animation="counter">
+                                <div class="achievement-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </div>
+                                <span class="achievement-number" data-count="248">0</span>
+                                <span class="achievement-label">Victories</span>
+                            </div>
+                            <div class="achievement" data-animation="counter">
+                                <div class="achievement-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                </div>
+                                <span class="achievement-number" data-count="254">0</span>
+                                <span class="achievement-label">Poles</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://ferrari.com/formula1" target="_blank" class="racing-cta magnetic">
+                            <span class="cta-bg"></span>
+                            <span class="cta-text">Explore F1 Heritage</span>
+                            <span class="cta-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="racing-floating-stats">
+                <div class="floating-stat">
+                    <span class="stat-value">75+</span>
+                    <span class="stat-desc">Years in F1</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="moments" class="section section-moments" data-section="4">
+            <div class="moments-bg">
+                <div class="moments-gradient"></div>
+            </div>
+            
+            <div class="moments-header">
+                <span class="section-label section-label-center" data-animation="fade-up">
+                    <span class="label-text">ICONIC MOMENTS</span>
+                </span>
+                <h2 class="moments-title reveal-text">Victory Lives Here</h2>
+            </div>
+            
+            <div class="moments-grid">
+                <article class="moment-card moment-large" data-animation="reveal">
+                    <div class="moment-media">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_499P_-_24_Heures_du_Mans_2024_Winner_(cropped).jpg?width=1400" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_499P_-_24_Heures_du_Mans_2024_Winner_(cropped).jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_499P_-_24_Heures_du_Mans_2024_Winner_(cropped).jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_499P_-_24_Heures_du_Mans_2024_Winner_(cropped).jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 70vw, 900px" alt="Ferrari 499P Le Mans 2024 overall winner endurance racing victory" loading="lazy" decoding="async" fetchpriority="low" width="900" height="600">
+                    </div>
+                    <div class="moment-overlay"></div>
+                    <div class="moment-content">
+                        <span class="moment-location">LE MANS, FRANCE</span>
+                        <h3 class="moment-title">Endurance Glory</h3>
+                        <span class="moment-year">2024</span>
+                        <div class="moment-hover-content">
+                            <p class="moment-description">Ferrari's 499P conquers Le Mans, sealing a modern endurance masterpiece and a historic overall victory.</p>
+                        </div>
+                    </div>
+                    <div class="moment-frame"></div>
+                </article>
+                
+                <article class="moment-card" data-animation="reveal">
+                    <div class="moment-media">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fale_F1_Monza_2004_30.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Fale_F1_Monza_2004_30.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Fale_F1_Monza_2004_30.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Fale_F1_Monza_2004_30.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 500px" alt="Ferrari F2004 dominance at Monza Temple of Speed 2004" loading="lazy" decoding="async" fetchpriority="low" width="500" height="400">
+                    </div>
+                    <div class="moment-overlay"></div>
+                    <div class="moment-content">
+                        <span class="moment-location">MONZA, ITALY</span>
+                        <h3 class="moment-title">Ferrari Dominance</h3>
+                        <span class="moment-year">2004</span>
+                        <div class="moment-hover-content">
+                            <p class="moment-description">An iconic era of Formula 1 success, with Ferrari and the F2004 ruling at the Temple of Speed.</p>
+                        </div>
+                    </div>
+                    <div class="moment-frame"></div>
+                </article>
+                
+                <article class="moment-card" data-animation="reveal">
+                    <div class="moment-media">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F2007.jpg?width=1200" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F2007.jpg?width=800 800w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F2007.jpg?width=1200 1200w, https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F2007.jpg?width=1600 1600w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 500px" alt="Ferrari F2007 World Championship car at Interlagos Brazil" loading="lazy" decoding="async" fetchpriority="low" width="500" height="400">
+                    </div>
+                    <div class="moment-overlay"></div>
+                    <div class="moment-content">
+                        <span class="moment-location">INTERLAGOS, BRAZIL</span>
+                        <h3 class="moment-title">World Champion</h3>
+                        <span class="moment-year">2007</span>
+                        <div class="moment-hover-content">
+                            <p class="moment-description">Ferrari secures a legendary title, completing a season that defined modern Formula 1 excellence.</p>
+                        </div>
+                    </div>
+                    <div class="moment-frame"></div>
+                </article>
+            </div>
+            
+            <div class="moments-decorative">
+                <div class="deco-text">VINCERE</div>
+            </div>
+        </section>
+        
+        <section id="legacy" class="section section-legacy" data-section="5">
+            <div class="legacy-bg">
+                <video class="legacy-video" autoplay muted loop playsinline preload="metadata" poster="images/Leclerc-Motorsport-03-Quote.jpg">
+                    <source src="https://www.charlesleclerc.com/wp-content/uploads/2025/02/734f4a30-90b46c92.mp4" type="video/mp4">
+                </video>
+                <div class="legacy-overlay"></div>
+                <div class="legacy-grain"></div>
+            </div>
+            
+            <div class="legacy-parallax-text" data-speed="0.3">
+                <span>ESSERE FERRARI</span>
+                <span>ESSERE FERRARI</span>
+            </div>
+            
+            <div class="legacy-content">
+                <div class="legacy-header">
+                    <span class="section-label section-label-light" data-animation="fade-up">
+                        <span class="label-number">05</span>
+                        <span class="label-line"></span>
+                        <span class="label-text">LEGACY</span>
+                    </span>
+                </div>
+                
+                <div class="legacy-main">
+                    <h2 class="legacy-title reveal-text">
+                        <span class="legacy-title-line">ESSERE</span>
+                        <span class="legacy-title-line legacy-title-outline">FERRARI</span>
+                    </h2>
+                    <p class="legacy-subtitle" data-animation="fade-up">The dream continues. The passion never fades.</p>
+                    
+                    <div class="legacy-cta" data-animation="fade-up">
+                        <a href="https://ferrari.com" target="_blank" class="cta-primary magnetic">
+                            <span class="cta-bg"></span>
+                            <span class="cta-content">
+                                <span class="cta-text">Discover Ferrari</span>
+                                <span class="cta-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="legacy-footer">
+                    <div class="legacy-quote">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">Second is the first loser.</p>
+                        <span class="quote-author">Enzo Ferrari</span>
+                    </div>
+                    
+                    <div class="legacy-logo">
+                        <img src="icons/ferrari-logo-5.png" alt="Ferrari Logo" class="footer-ferrari-logo" loading="lazy" decoding="async" width="120" height="164">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legacy-scroll-indicator">
+                <span class="scroll-text">THE END</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="icons/ferrari-logo-5.png" alt="Ferrari Logo" class="footer-logo-img" loading="lazy" decoding="async" width="50" height="68">
+                <div class="footer-brand-text">
+                    <span class="brand-name">SCUDERIA FERRARI</span>
+                    <span class="brand-tagline">Racing Excellence Since 1929</span>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://ferrari.com" target="_blank" class="footer-link magnetic">Official Site</a>
+                <a href="https://instagram.com/ferrari" target="_blank" class="footer-link magnetic">Instagram</a>
+                <a href="https://twitter.com/scuderiaferrari" target="_blank" class="footer-link magnetic">Twitter</a>
+                <a href="https://youtube.com/ferrari" target="_blank" class="footer-link magnetic">YouTube</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <span class="footer-copy">2026 Scuderia Ferrari S.p.A. - Tifosi Tribute</span>
+            <span class="footer-location">Maranello, Modena, Italia</span>
+        </div>
+        
+        <div class="footer-decoration">
+            <div class="footer-line"></div>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
+
+
+
