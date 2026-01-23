@@ -1,0 +1,105 @@
+import { motion } from "framer-motion";
+
+const features = [
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+        ),
+        title: "Revolutionary Design",
+        description: "Setting the standard for premium consumer electronics with iconic designs."
+    },
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+        ),
+        title: "iPhone Revolution",
+        description: "Reinventing the smartphone and transforming how we communicate."
+    },
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+        ),
+        title: "iTunes & Music",
+        description: "Transforming the music industry with digital distribution."
+    },
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+        ),
+        title: "Privacy First",
+        description: "Making privacy a fundamental human right in the digital age."
+    },
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+        ),
+        title: "Apple Silicon",
+        description: "Building the world's most powerful chips for Mac and beyond."
+    },
+    {
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        ),
+        title: "Environmental",
+        description: "Committed to carbon neutrality across all products by 2030."
+    },
+];
+
+export const FeaturesSection = () => {
+    return (
+        <section className="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent via-white/30 to-transparent">
+            <div className="max-w-6xl mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
+                >
+                    <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#86868b] block mb-3">
+                        What Defines Apple
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">
+                        Core Values.
+                    </h2>
+                    <p className="text-lg text-[#86868b] max-w-xl mx-auto">
+                        The principles that guide every product, every decision, every innovation.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={feature.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.08 }}
+                            whileHover={{ y: -5, scale: 1.02 }}
+                            className="liquid-glass p-6 group cursor-pointer"
+                        >
+                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0071e3]/10 to-[#6366f1]/10 flex items-center justify-center mb-4 text-[#0071e3] group-hover:from-[#0071e3] group-hover:to-[#6366f1] group-hover:text-white transition-all duration-300">
+                                {feature.icon}
+                            </div>
+                            <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">{feature.title}</h3>
+                            <p className="text-sm text-[#86868b] leading-relaxed">{feature.description}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
