@@ -37,18 +37,70 @@
     }
   ],
   "skills": [
-    { "category": "Mobile", "tech": ["Flutter", "Dart", "Android", "iOS"] },
-    { "category": "Frontend", "tech": ["ReactJS", "Next.js", "TypeScript", "Tailwind"] },
-    { "category": "Backend", "tech": ["NodeJS", "Python", "MySQL", "REST APIs"] },
-    { "category": "Tools", "tech": ["Git", "Docker", "Figma", "Firebase"] }
+    {
+      "category": "Mobile",
+      "tech": [
+        "Flutter",
+        "Dart",
+        "Android",
+        "iOS"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "tech": [
+        "ReactJS",
+        "Next.js",
+        "TypeScript",
+        "Tailwind"
+      ]
+    },
+    {
+      "category": "Backend",
+      "tech": [
+        "NodeJS",
+        "Python",
+        "MySQL",
+        "REST APIs"
+      ]
+    },
+    {
+      "category": "Tools",
+      "tech": [
+        "Git",
+        "Docker",
+        "Figma",
+        "Firebase"
+      ]
+    }
   ],
   "projects": [
     {
       "id": "01",
+      "title": "Femme Fatale Obsession",
+      "type": "Masterclass Landing Page",
+      "description": "Premium landing page with high-end animations and aesthetics, focused on conversion and visual excellence.",
+      "tech": [
+        "React",
+        "Vite",
+        "Tailwind",
+        "Framer Motion"
+      ],
+      "year": "2026",
+      "image": "/femmefatale/logo.png",
+      "link": "/femmefatale/index.html"
+    },
+    {
+      "id": "02",
       "title": "Ferrari Showcase",
       "type": "Immersive Brand Experience",
       "description": "High-impact Ferrari experience with cinematic storytelling, smooth transitions, and premium visuals.",
-      "tech": ["HTML", "CSS", "JavaScript", "Animations"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Animations"
+      ],
       "year": "2026",
       "image": "/images/Ferrari Page Image.png",
       "link": "/ferrari/index.html"
