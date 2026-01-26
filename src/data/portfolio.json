@@ -77,21 +77,6 @@
   "projects": [
     {
       "id": "01",
-      "title": "Femme Fatale Obsession",
-      "type": "Masterclass Landing Page",
-      "description": "Premium landing page with high-end animations and aesthetics, focused on conversion and visual excellence.",
-      "tech": [
-        "React",
-        "Vite",
-        "Tailwind",
-        "Framer Motion"
-      ],
-      "year": "2026",
-      "image": "/femmefatale/logo.png",
-      "link": "/femmefatale/index.html"
-    },
-    {
-      "id": "02",
       "title": "Ferrari Showcase",
       "type": "Immersive Brand Experience",
       "description": "High-impact Ferrari experience with cinematic storytelling, smooth transitions, and premium visuals.",
