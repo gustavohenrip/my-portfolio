@@ -89,6 +89,21 @@
       "year": "2026",
       "image": "/images/Ferrari Page Image.png",
       "link": "/ferrari/index.html"
+    },
+    {
+      "id": "02",
+      "title": "RedePet",
+      "type": "Donation Platform for Animal Protection",
+      "description": "Conectando corações e transformando vidas. Plataforma de doações para institutos de proteção animal.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Tailwind",
+        "Vite"
+      ],
+      "year": "2026",
+      "image": "/images/RedePet Page Image.png",
+      "link": "/redepet/index.html"
     }
   ],
   "experience": [
