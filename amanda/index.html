@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<base href="/amanda/">
+<title>Amanda ♡ — uma carta para você</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&family=Caveat:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1a0d0a;
+    --bg-2: #2a1410;
+    --cream: #f5ead7;
+    --cream-dim: #c9a876;
+    --brown: #6b2d2d;
+    --gold: #c9a876;
+    --gold-bright: #e8c892;
+    --wine: #7a1f2b;
+    --ink: #0f0806;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Playfair Display', Georgia, serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  html.gate-open, body.gate-open { overflow: hidden; }
+
+  /* Grão de filme global */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+    animation: grain 0.6s steps(6) infinite;
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-3%, -2%); }
+    20% { transform: translate(2%, 3%); }
+    30% { transform: translate(-1%, 2%); }
+    40% { transform: translate(3%, -1%); }
+    50% { transform: translate(-2%, 3%); }
+    60% { transform: translate(1%, -3%); }
+    70% { transform: translate(3%, 2%); }
+    80% { transform: translate(-3%, -1%); }
+    90% { transform: translate(2%, 2%); }
+  }
+
+  /* Flicker de projetor */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%);
+    animation: flicker 4s ease infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    48% { opacity: 1; }
+    49% { opacity: 0.85; }
+    50% { opacity: 1; }
+    51% { opacity: 0.92; }
+    52% { opacity: 1; }
+  }
+
+  /* ======== TIMECODE HUD ======== */
+  .hud {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    z-index: 100;
+    mix-blend-mode: screen;
+  }
+  .hud .rec {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #e8322e;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: recBlink 1s ease infinite;
+  }
+  @keyframes recBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0.2; }
+  }
+  .hud-reel {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: right;
+    z-index: 100;
+    text-transform: uppercase;
+  }
+  .hud-reel .line { opacity: 0.8; }
+
+  /* ======== MUSIC PLAYER ======== */
+  .music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(15, 8, 6, 0.9);
+    color: var(--cream);
+    padding: 12px 16px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 280px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    backdrop-filter: blur(4px);
+  }
+  .music-player .play-btn {
+    width: 32px; height: 32px;
+    background: var(--gold);
+    border: none;
+    color: var(--bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+  .music-player .play-btn:active { transform: scale(0.95); }
+  .music-info { line-height: 1.4; overflow: hidden; }
+  .music-info .song { font-weight: 500; letter-spacing: 1px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; color: var(--gold-bright); }
+  .music-info .artist { font-size: 9px; opacity: 0.7; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* ======== HERO / FILM OPENING ======== */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at center, rgba(122, 31, 43, 0.25) 0%, transparent 60%),
+      var(--bg);
+  }
+
+  /* Perfurações de filme nas laterais */
+  .film-perfs {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0 20px,
+        rgba(0,0,0,0.6) 20px 26px,
+        transparent 26px 46px
+      );
+    z-index: 2;
+  }
+  .film-perfs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0 22px,
+        var(--gold) 22px 24px,
+        transparent 24px 46px
+      );
+    opacity: 0.15;
+  }
+  .film-perfs.left { left: 0; }
+  .film-perfs.right { right: 0; }
+
+  .title-card {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    padding: 40px 20px;
+  }
+
+  .slate {
+    display: inline-block;
+    border: 2px solid var(--gold);
+    padding: 6px 18px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.2s forwards;
+  }
+
+  .presents {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease 0.8s forwards;
+  }
+  .presents .from-name {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--gold-bright);
+    letter-spacing: 2px;
+    margin-top: 8px;
+    text-transform: none;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(72px, 18vw, 230px);
+    line-height: 0.9;
+    color: var(--cream);
+    letter-spacing: -4px;
+    position: relative;
+    margin: 20px 0;
+    text-shadow: 0 0 30px rgba(201, 168, 118, 0.2);
+  }
+
+  .hero-name .letter {
+    display: inline-block;
+    opacity: 0;
+    animation: letterGlow 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes letterGlow {
+    0% { opacity: 0; transform: scale(1.5) rotate(3deg); filter: blur(12px); }
+    100% { opacity: 1; transform: scale(1) rotate(0); filter: blur(0); }
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--cream-dim);
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 3s forwards;
+    letter-spacing: 2px;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--cream-dim);
+    opacity: 0;
+    animation: fadeIn 1.5s ease 3.5s forwards;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+  }
+  .hero-meta span { border-top: 1px solid var(--cream-dim); padding-top: 6px; }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeIn 1s ease 4.5s forwards, bounce 2s ease 5s infinite;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+
+  /* ======== SECTION HEADINGS ======== */
+  .chapter {
+    text-align: center;
+    padding: 100px 20px 30px;
+    position: relative;
+  }
+  .chapter .scene-slate {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--gold);
+    padding: 8px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .scene-slate .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .chapter h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(36px, 7vw, 72px);
+    color: var(--cream);
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .chapter .sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  /* ======== FILM STRIP GALLERY ======== */
+  .film-reel {
+    padding: 40px 0;
+    overflow: hidden;
+    position: relative;
+    background:
+      linear-gradient(to bottom, transparent, rgba(26, 13, 10, 0.4) 50%, transparent),
+      var(--bg);
+  }
+
+  .reel-edge-top, .reel-edge-bot {
+    height: 24px;
+    background:
+      repeating-linear-gradient(
+        to right,
+        transparent 0 30px,
+        rgba(245, 234, 215, 0.08) 30px 38px,
+        transparent 38px 68px
+      ),
+      #0d0604;
+    position: relative;
+  }
+  .reel-edge-top::after, .reel-edge-bot::after {
+    content: '';
+    position: absolute;
+    inset: 8px 0;
+    background: repeating-linear-gradient(
+      to right,
+      transparent 0 34px,
+      rgba(0,0,0,0.9) 34px 42px,
+      transparent 42px 68px
+    );
+  }
+
+  .reel-track {
+    display: flex;
+    gap: 20px;
+    padding: 40px 0;
+    width: max-content;
+    animation: reelScroll 30s linear infinite;
+  }
+  .reel-track.reverse {
+    animation: reelScrollRev 35s linear infinite;
+  }
+  @keyframes reelScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes reelScrollRev {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  .frame {
+    flex-shrink: 0;
+    width: 300px;
+    aspect-ratio: 4/3;
+    background: #000;
+    position: relative;
+    border: 6px solid #0d0604;
+    box-shadow:
+      0 0 0 1px var(--gold),
+      0 20px 40px rgba(0,0,0,0.6);
+    transition: transform 0.4s ease;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .frame:hover { transform: scale(1.08); z-index: 5; }
+  .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.4) saturate(0.9) contrast(1.1) brightness(0.9);
+  }
+  .frame-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+      repeating-linear-gradient(45deg, #2a1410 0 12px, #1a0d0a 12px 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+  }
+  .frame-num {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+  .frame-label {
+    position: absolute;
+    top: -22px;
+    right: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--cream-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Photo cards estáticos - destaque principal */
+  .spotlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 40px 24px 80px;
+  }
+  .spotlight .frame {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .spotlight .frame.in { opacity: 1; transform: translateY(0); }
+
+  /* ======== THE LETTER SCENE ======== */
+  .scene-letter {
+    padding: 60px 20px 120px;
+    background:
+      radial-gradient(ellipse at center, rgba(122, 31, 43, 0.15) 0%, transparent 70%),
+      var(--bg);
+    position: relative;
+  }
+
+  .letter-wrap {
+    max-width: 720px;
+    margin: 40px auto 0;
+    position: relative;
+  }
+
+  .letter-paper {
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 34px, rgba(107, 45, 45, 0.12) 34px 35px),
+      linear-gradient(135deg, #efe3c8 0%, #d9c69f 100%);
+    color: var(--ink);
+    padding: 70px 60px;
+    font-family: 'Special Elite', monospace;
+    font-size: 15px;
+    line-height: 2.1;
+    position: relative;
+    transform: rotate(-0.5deg);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.6),
+      inset 0 0 60px rgba(107, 45, 45, 0.1);
+  }
+
+  /* Corner dobrada */
+  .letter-paper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(225deg, var(--bg) 50%, transparent 50%);
+    filter: drop-shadow(-2px 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .typewriter-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .typewriter-header .meta {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--brown);
+  }
+  .typewriter-header .to {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 38px;
+    color: var(--ink);
+  }
+  .letter-paper p { margin-bottom: 18px; }
+  .letter-paper .opening {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28px;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .letter-paper .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 44px;
+    color: var(--wine);
+    transform: rotate(-4deg);
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: 700;
+  }
+  .letter-paper .heart {
+    color: var(--wine);
+    display: inline-block;
+    animation: beat 1.5s ease infinite;
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.3); }
+    40% { transform: scale(0.95); }
+  }
+
+  .stamp {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    border: 3px double var(--wine);
+    padding: 14px 20px;
+    color: var(--wine);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.4;
+    text-transform: uppercase;
+    transform: rotate(-15deg);
+    opacity: 0.75;
+  }
+  .stamp .big {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    display: block;
+    font-weight: 700;
+  }
+
+  /* ======== TIMELINE ======== */
+  .timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 50%;
+    width: 1px;
+    background: repeating-linear-gradient(to bottom, var(--gold) 0 6px, transparent 6px 12px);
+    transform: translateX(-50%);
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  .tl-item.in { opacity: 1; transform: translateY(0); }
+  .tl-item .date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .tl-item:nth-child(even) .date { order: 3; text-align: left; }
+  .tl-item:nth-child(even) .text { order: 1; text-align: right; }
+  .tl-item .dot {
+    width: 14px; height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(201, 168, 118, 0.2), 0 0 20px var(--gold);
+    flex-shrink: 0;
+  }
+  .tl-item .text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--cream);
+  }
+
+  @media (max-width: 640px) {
+    .timeline::before { left: 20px; }
+    .tl-item { grid-template-columns: 40px 1fr; gap: 16px; }
+    .tl-item .date { order: 0 !important; text-align: left !important; font-size: 10px; grid-column: 2; }
+    .tl-item:nth-child(even) .date { order: 0 !important; text-align: left !important; }
+    .tl-item .text { order: 0 !important; text-align: left !important; grid-column: 2; font-size: 16px; }
+    .tl-item:nth-child(even) .text { order: 0 !important; text-align: left !important; }
+    .tl-item .dot { grid-row: 1 / span 2; margin-left: 13px; }
+  }
+
+  /* ======== NICKNAME CARDS ======== */
+  .names-scene {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 780px;
+    margin: 50px auto 0;
+  }
+  .name-card {
+    padding: 40px 20px;
+    border: 1px solid var(--gold);
+    background: rgba(201, 168, 118, 0.04);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 34px);
+    color: var(--gold-bright);
+    position: relative;
+    transition: all 0.4s ease;
+    min-height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .name-card.wide {
+    grid-column: 1 / -1;
+  }
+  .name-card::before {
+    content: attr(data-idx);
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--cream-dim);
+    letter-spacing: 2px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .name-card:hover {
+    background: var(--gold);
+    color: var(--bg);
+    transform: scale(1.03);
+  }
+  .name-card:hover::before { color: var(--bg); }
+
+  /* ======== LOVES ======== */
+  .loves-scene { padding: 60px 20px 100px; }
+  .loves-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 1180px;
+    margin: 50px auto 0;
+  }
+  .love-tag {
+    min-height: 120px;
+    padding: 18px 16px;
+    border: 1px dashed var(--cream-dim);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+  }
+  .love-tag::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--gold);
+    font-style: normal;
+    letter-spacing: 1px;
+  }
+  .love-tag:hover { border-style: solid; border-color: var(--gold); color: var(--gold-bright); }
+
+  /* ======== ENDING / CREDITS ======== */
+  .credits {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+    background:
+      radial-gradient(ellipse at center, rgba(122, 31, 43, 0.2), transparent 70%),
+      var(--bg);
+    position: relative;
+  }
+
+  .fin {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(60px, 14vw, 180px);
+    color: var(--cream);
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 40px rgba(201, 168, 118, 0.3);
+  }
+  .fin-line {
+    height: 1px;
+    width: 120px;
+    background: var(--gold);
+    margin: 20px auto;
+  }
+  .credits-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    line-height: 2.4;
+    margin-top: 40px;
+  }
+  .credits-text .label { opacity: 0.5; display: inline-block; min-width: 140px; text-align: right; margin-right: 24px; }
+  .credits-text .value { color: var(--gold-bright); }
+  .credits-love {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(28px, 5vw, 44px);
+    color: var(--gold);
+    margin-top: 60px;
+  }
+
+  /* ======== AUDIO GATE ======== */
+  .audio-gate {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 24%, rgba(201, 168, 118, 0.12), transparent 28%),
+      radial-gradient(circle at 72% 76%, rgba(122, 31, 43, 0.16), transparent 24%),
+      #000;
+    color: var(--cream);
+    display: grid;
+    place-items: center;
+    z-index: 10000;
+    overflow: hidden;
+    text-align: center;
+    padding: 24px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .audio-gate.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.01);
+  }
+  .audio-gate::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle at center, rgba(201, 168, 118, 0.12), transparent 52%);
+    animation: gateGlow 10s ease-in-out infinite;
+  }
+  .audio-gate::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 38%, rgba(201, 168, 118, 0.07) 50%, transparent 62%);
+    opacity: 0.5;
+    animation: gateSweep 8s ease-in-out infinite;
+  }
+  .gate-shell {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 920px);
+    display: grid;
+    gap: 28px;
+    justify-items: center;
+    padding: 20px 0;
+    animation: gateRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .gate-topmeta {
+    display: grid;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+  }
+  .gate-topmeta .brand {
+    color: var(--gold);
+  }
+  .gate-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
+  }
+  .gate-ring {
+    --gate-ring-size: clamp(136px, 18vw, 178px);
+    width: var(--gate-ring-size);
+    height: var(--gate-ring-size);
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+  .gate-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 168, 118, 0.22);
+    box-shadow: 0 0 0 1px rgba(201, 168, 118, 0.04) inset;
+  }
+  .gate-ring::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 70%, rgba(201, 168, 118, 0.98) 76%, transparent 84% 100%);
+    -webkit-mask: radial-gradient(circle, transparent 59%, #000 61%);
+    mask: radial-gradient(circle, transparent 59%, #000 61%);
+    filter: blur(1px);
+    animation: ringSpin 4.8s linear infinite;
+  }
+  .countdown {
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: clamp(54px, 8vw, 82px);
+    color: var(--gold);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+    font-variant-numeric: lining-nums tabular-nums;
+    text-shadow: 0 0 32px rgba(201, 168, 118, 0.24);
+    animation: countBreath 2.8s ease-in-out infinite;
+  }
+  .gate-copy {
+    max-width: 360px;
+    text-align: left;
+  }
+  .gate-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .gate-copy h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(32px, 4.5vw, 54px);
+    line-height: 0.98;
+    color: var(--cream);
+    margin: 0;
+  }
+  .gate-copy .hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold-bright);
+    margin-top: 16px;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+  .gate-status {
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .audio-gate.ready .gate-status {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gate-bars {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 22px;
+    margin-top: 20px;
+  }
+  .gate-bars span {
+    width: 6px;
+    border-radius: 999px;
+    background: linear-gradient(to top, rgba(201, 168, 118, 0.18), rgba(201, 168, 118, 0.98));
+    animation: barPulse 1.2s ease-in-out infinite;
+    animation-delay: var(--delay);
+    opacity: 0.82;
+  }
+  .gate-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .audio-gate .start-btn {
+    background: rgba(201, 168, 118, 0.08);
+    border: 1px solid rgba(201, 168, 118, 0.6);
+    color: var(--gold-bright);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    padding: 14px 22px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .audio-gate .start-btn:hover {
+    background: rgba(201, 168, 118, 0.18);
+    border-color: rgba(201, 168, 118, 0.85);
+    color: var(--cream);
+    transform: translateY(-1px);
+  }
+  .audio-gate .skip {
+    background: none;
+    border: none;
+    color: var(--cream-dim);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    padding: 14px 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+  .audio-gate .skip:hover { opacity: 1; }
+  @keyframes gateGlow {
+    0%, 100% { transform: translate3d(-2%, -1%, 0) scale(1); }
+    50% { transform: translate3d(2%, 1%, 0) scale(1.08); }
+  }
+  @keyframes gateSweep {
+    0%, 100% { transform: translateX(-8%); opacity: 0.35; }
+    50% { transform: translateX(8%); opacity: 0.58; }
+  }
+  @keyframes ringSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes countBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  @keyframes barPulse {
+    0%, 100% { transform: scaleY(0.35); opacity: 0.38; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+  @keyframes gateRise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========== RESPONSIVO — TABLETS ========== */
+  @media (max-width: 900px) {
+    .film-perfs { width: 24px; }
+    .hero-meta { gap: 20px 30px; font-size: 9px; }
+    .frame { width: 260px; }
+    .letter-paper { padding: 60px 44px; font-size: 14.5px; line-height: 2; }
+    .stamp { top: 28px; right: 28px; padding: 10px 14px; }
+    .stamp .big { font-size: 16px; }
+    .gate-main { gap: 24px; }
+    .gate-copy { max-width: 330px; }
+  }
+
+  /* ========== RESPONSIVO — MOBILE ========== */
+  @media (max-width: 640px) {
+    /* HUD - compacta no topo */
+    .hud, .hud-reel {
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+    }
+    .hud { top: 12px; left: 12px; }
+    .hud-reel { top: 12px; right: 12px; line-height: 1.5; }
+    .hud-reel .line:last-child { display: none; }
+    .hud .rec { width: 6px; height: 6px; margin-right: 5px; }
+
+    /* Perfurações do filme - mais finas */
+    .film-perfs { width: 14px; }
+    .film-perfs::before {
+      background:
+        repeating-linear-gradient(to bottom, transparent 0 16px, var(--gold) 16px 18px, transparent 18px 34px);
+    }
+
+    .audio-gate {
+      padding: 20px 16px;
+    }
+    .gate-shell {
+      gap: 22px;
+    }
+    .gate-topmeta {
+      font-size: 8px;
+      letter-spacing: 2.5px;
+    }
+    .gate-main {
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+    .gate-ring {
+      --gate-ring-size: min(32vw, 120px);
+    }
+    .countdown {
+      font-size: clamp(40px, 12vw, 48px);
+    }
+    .gate-copy {
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+    }
+    .gate-copy .hint,
+    .gate-status {
+      letter-spacing: 2.5px;
+    }
+    .gate-actions {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    .audio-gate .start-btn {
+      width: min(100%, 320px);
+    }
+    .audio-gate .skip {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    /* HERO — compacto, respeitando safe-area */
+    .hero {
+      padding: 80px 28px 100px;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+    .title-card { padding: 10px 0; }
+    .slate {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      padding: 5px 12px;
+      margin-bottom: 22px;
+    }
+    .presents {
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-bottom: 22px;
+    }
+    .presents .from-name {
+      font-size: 26px;
+      margin-top: 6px;
+    }
+    .hero-name {
+      font-size: clamp(58px, 19vw, 110px);
+      letter-spacing: -2px;
+      margin: 14px 0;
+    }
+    .hero-tagline {
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-top: 14px;
+      padding: 0 10px;
+    }
+    .hero-meta {
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      justify-content: center;
+    }
+    .hero-meta span {
+      padding-top: 5px;
+      flex: 1 1 45%;
+      max-width: 160px;
+    }
+
+    /* MUSIC PLAYER - compacto, não sobrepõe */
+    .music-player {
+      bottom: 14px;
+      right: 14px;
+      left: 14px;
+      max-width: none;
+      padding: 10px 12px;
+      gap: 10px;
+    }
+    .music-player .play-btn { width: 30px; height: 30px; font-size: 11px; }
+    .music-info .song { font-size: 10px; }
+    .music-info .artist { font-size: 8.5px; letter-spacing: 1.5px; }
+
+    /* CHAPTERS */
+    .chapter {
+      padding: 70px 20px 20px;
+    }
+    .chapter h2 {
+      font-size: clamp(30px, 8vw, 44px);
+      letter-spacing: -0.5px;
+    }
+    .chapter .sub {
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      margin-top: 14px;
+    }
+    .scene-slate {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      padding: 6px 14px;
+      margin-bottom: 22px;
+      gap: 8px;
+    }
+
+    /* FILM REELS - frames um pouco menores */
+    .film-reel { padding: 20px 0; }
+    .reel-track { gap: 14px; padding: 28px 0; animation-duration: 28s; }
+    .reel-track.reverse { animation-duration: 34s; }
+    .frame {
+      width: 210px;
+      border-width: 4px;
+    }
+    .frame-placeholder { font-size: 10px; padding: 14px; }
+    .frame-label, .frame-num { font-size: 8px; letter-spacing: 1.5px; }
+    .frame-label { top: -18px; }
+    .frame-num { bottom: -16px; }
+
+    /* SPOTLIGHT - mostra 1 coluna */
+    .spotlight {
+      grid-template-columns: 1fr;
+      gap: 34px;
+      padding: 30px 28px 60px;
+      max-width: 320px;
+    }
+    .spotlight .frame { width: 100%; border-width: 5px; }
+
+    /* LETTER */
+    .scene-letter { padding: 40px 16px 80px; }
+    .letter-wrap { margin-top: 24px; }
+    .letter-paper {
+      padding: 60px 28px 60px;
+      font-size: 14px;
+      line-height: 1.95;
+      transform: rotate(-0.3deg);
+    }
+    .letter-paper::after {
+      width: 30px;
+      height: 30px;
+    }
+    .typewriter-header { margin-bottom: 30px; padding-bottom: 18px; }
+    .typewriter-header .meta { font-size: 9px; letter-spacing: 2.5px; }
+    .typewriter-header .to { font-size: 30px; }
+    .letter-paper .opening { font-size: 22px; margin-bottom: 20px; }
+    .letter-paper p { margin-bottom: 16px; }
+    .letter-paper .signature {
+      font-size: 36px;
+      margin-top: 22px;
+    }
+
+    /* Stamp - menor e melhor posicionado */
+    .stamp {
+      top: 14px;
+      right: 14px;
+      padding: 8px 10px;
+      font-size: 7.5px;
+      letter-spacing: 1.5px;
+      transform: rotate(-12deg);
+    }
+    .stamp .big { font-size: 13px; }
+
+    /* TIMELINE já tem ajuste, mas refinando */
+    .timeline { padding: 30px 20px 60px; }
+    .timeline::before { left: 18px; top: 20px; bottom: 20px; }
+    .tl-item {
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .tl-item .dot {
+      width: 12px; height: 12px;
+      margin-left: 12px;
+      box-shadow: 0 0 0 4px rgba(201, 168, 118, 0.18), 0 0 14px var(--gold);
+    }
+    .tl-item .date { font-size: 9.5px; letter-spacing: 2px; margin-bottom: 4px; }
+    .tl-item .text { font-size: 15.5px; line-height: 1.45; }
+
+    /* NICKNAMES */
+    .names-scene { padding: 40px 16px 60px; }
+    .names-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .name-card {
+      padding: 26px 10px;
+      font-size: 18px;
+    }
+    .name-card.wide {
+      grid-column: 1 / -1;
+      font-size: 22px;
+    }
+    .name-card::before { font-size: 8px; }
+
+    /* LOVES */
+    .loves-scene { padding: 40px 16px 80px; }
+    .loves-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .love-tag {
+      padding: 22px 10px;
+      font-size: 15px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .love-tag::before { font-size: 8px; top: 5px; left: 7px; }
+
+    /* CREDITS */
+    .credits {
+      padding: 50px 20px;
+      min-height: 90vh;
+    }
+    .fin {
+      font-size: clamp(72px, 22vw, 120px);
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+    }
+    .fin-line { width: 80px; margin: 14px auto; }
+    .credits-text { font-size: 9.5px; letter-spacing: 2.5px; line-height: 2.2; }
+    .credits-text .label { min-width: 100px; margin-right: 14px; }
+    .credits-love { font-size: 28px; margin-top: 40px; }
+
+  }
+
+  /* ========== RESPONSIVO — MOBILE PEQUENO ========== */
+  @media (max-width: 380px) {
+    .hero { padding: 72px 20px 90px; }
+    .hero-name { font-size: clamp(52px, 22vw, 90px); }
+    .hero-meta { font-size: 8px; gap: 8px; }
+    .hero-meta span { max-width: 140px; }
+    .presents { font-size: 9px; letter-spacing: 3px; }
+    .presents .from-name { font-size: 22px; }
+    .frame { width: 180px; }
+    .letter-paper { padding: 50px 22px 50px; font-size: 13.5px; }
+    .typewriter-header .to { font-size: 26px; }
+    .letter-paper .opening { font-size: 20px; }
+    .name-card { font-size: 16px; padding: 22px 8px; }
+    .love-tag { font-size: 14px; min-height: 64px; }
+    .music-player .music-info .song { font-size: 9.5px; }
+  }
+
+  /* ========== PAISAGEM MOBILE — não desperdiçar altura ========== */
+  @media (max-height: 520px) and (orientation: landscape) {
+    .hero { min-height: auto; padding: 60px 40px 40px; }
+    .hero-name { font-size: clamp(50px, 12vw, 90px); margin: 10px 0; }
+    .slate, .presents { margin-bottom: 14px; }
+    .audio-gate { padding: 20px; }
+    .gate-shell { gap: 16px; }
+    .gate-main { gap: 18px; }
+    .audio-gate .countdown { font-size: 62px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; }
+    .reel-track { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="audio-gate" id="audioGate">
+  <div class="gate-shell">
+    <div class="gate-topmeta">
+      <div class="brand">GUSTAVO PICTURES · 2026</div>
+      <div>REEL 01 · AMANDA · 1 ANO</div>
+    </div>
+    <div class="gate-main">
+      <div class="gate-ring" aria-hidden="true">
+        <div class="countdown" id="countdown">3</div>
+      </div>
+      <div class="gate-copy">
+        <div class="gate-kicker">ABERTURA</div>
+        <h2>Sessão pronta.</h2>
+        <div class="hint">Pressione play para começar o filme.</div>
+        <div class="gate-bars" aria-hidden="true">
+          <span style="--delay: 0s; --h: 8px;"></span>
+          <span style="--delay: 0.12s; --h: 16px;"></span>
+          <span style="--delay: 0.24s; --h: 12px;"></span>
+          <span style="--delay: 0.36s; --h: 18px;"></span>
+          <span style="--delay: 0.48s; --h: 10px;"></span>
+        </div>
+        <div class="gate-status">Pronto para começar</div>
+      </div>
+    </div>
+    <div class="gate-actions">
+      <button class="start-btn" onclick="startExperience(true)">▶ Iniciar com som</button>
+      <button class="skip" onclick="startExperience(false)">Continuar sem áudio</button>
+    </div>
+  </div>
+</div>
+
+<!-- HUD -->
+<div class="hud"><span class="rec"></span>REC · 01:00:<span id="tc">00</span></div>
+<div class="hud-reel">
+  <div class="line">REEL 01 / 01</div>
+  <div class="line">AMANDA · 1 ANO</div>
+</div>
+
+<!-- MUSIC PLAYER -->
+<div class="music-player" id="musicPlayer">
+  <button class="play-btn" id="playBtn">▶</button>
+  <div class="music-info">
+    <div class="song">É por você que eu canto</div>
+    <div class="artist">Leonardo & Leandro</div>
+  </div>
+  <audio id="audio" loop preload="auto">
+    <source src="assets/musica.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" data-screen-label="01 Abertura">
+  <div class="film-perfs left"></div>
+  <div class="film-perfs right"></div>
+
+  <div class="title-card">
+    <div class="presents">
+      UMA CARTA PARA
+    </div>
+    <h1 class="hero-name" id="heroName"></h1>
+    <div class="hero-tagline">— uma história de amor em película —</div>
+    <div class="hero-meta">
+      <span>DURAÇÃO · 01 ANO</span>
+      <span>GÊNERO · ROMANCE</span>
+      <span>ESTREIA · 31.05.2025</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">↓ começar sessão</div>
+</section>
+
+<!-- ========== CAPÍTULO I: AS FOTOS ========== -->
+<div class="chapter">
+  <div class="scene-slate"><span class="dot"></span>CENA 02 · GALERIA</div>
+  <h2>As cenas<br>que a gente gravou</h2>
+    <div class="sub">reel em loop</div>
+</div>
+
+<div class="film-reel">
+  <div class="reel-edge-top"></div>
+  <div class="reel-track" id="reel1"></div>
+  <div class="reel-edge-bot"></div>
+</div>
+
+<div class="film-reel">
+  <div class="reel-edge-top"></div>
+  <div class="reel-track reverse" id="reel2"></div>
+  <div class="reel-edge-bot"></div>
+</div>
+
+<!-- Spotlight com as fotos em destaque -->
+<div class="spotlight" id="spotlight">
+  <div class="frame">
+    <img src="fotos/20250531_191731.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 01</div>
+    <div class="frame-num">FRAME · 001 / ∞</div>
+  </div>
+  <div class="frame">
+    <img src="fotos/IMG-20250531-WA0022.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 02</div>
+    <div class="frame-num">FRAME · 002 / ∞</div>
+  </div>
+  <div class="frame">
+    <img src="fotos/20250917_153218.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 03</div>
+    <div class="frame-num">FRAME · 003 / ∞</div>
+  </div>
+  <div class="frame">
+    <img src="fotos/20250917_161120.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 04</div>
+    <div class="frame-num">FRAME · 004 / ∞</div>
+  </div>
+  <div class="frame">
+    <img src="fotos/20250719_163905.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 05</div>
+    <div class="frame-num">FRAME · 005 / ∞</div>
+  </div>
+  <div class="frame">
+    <img src="fotos/20250719_163951.jpg" alt="Couple photo">
+    <div class="frame-label">TAKE 06</div>
+    <div class="frame-num">FRAME · 006 / ∞</div>
+  </div>
+</div>
+
+<!-- ========== CAPÍTULO II: TIMELINE ========== -->
+<div class="chapter">
+  <div class="scene-slate"><span class="dot"></span>CENA 03 · MEMÓRIAS</div>
+  <h2>As marcas<br>de tempo</h2>
+  <div class="sub">a linha que a gente desenhou junto</div>
+</div>
+
+<div class="timeline" id="timeline">
+  <div class="tl-item">
+    <div class="date">31 · MAI · 2025</div>
+    <div class="dot"></div>
+    <div class="text">A primeira vez. Oliv Restaurante. E tudo começou ali.</div>
+  </div>
+  <div class="tl-item">
+    <div class="date">JUN · 2025</div>
+    <div class="dot"></div>
+    <div class="text">A festa junina. O primeiro beijo. As mãos tremendo, o riso solto.</div>
+  </div>
+  <div class="tl-item">
+    <div class="date">19 · JUL · 2025</div>
+    <div class="dot"></div>
+    <div class="text">A foto na cabine do shopping. Prova física de que existe amor.</div>
+  </div>
+  <div class="tl-item">
+    <div class="date">HOJE</div>
+    <div class="dot"></div>
+    <div class="text">E ainda tem filme pra rodar por muito tempo, meu amor.</div>
+  </div>
+</div>
+
+<!-- ========== CAPÍTULO III: CARTA ========== -->
+<section class="scene-letter">
+  <div class="chapter">
+    <div class="scene-slate"><span class="dot"></span>CENA 04 · VOZ EM OFF</div>
+    <h2>A carta<br>que eu escrevi</h2>
+    <div class="sub">leitura em voz baixa</div>
+  </div>
+
+  <div class="letter-wrap">
+    <article class="letter-paper">
+      <div class="stamp">
+        COM AMOR<br>
+        <span class="big">Gustavo</span>
+      </div>
+
+      <div class="typewriter-header">
+        <div class="meta">DE · GUSTAVO · PARA</div>
+        <div class="to">Amanda</div>
+      </div>
+
+      <p class="opening">Amanda,</p>
+
+      <p>Tudo em você é incrível, seus olhos, seu cabelo, seu sorriso, tudo mesmo. Você é muito mais do que eu já imaginei pra mim. Você é o maior presente que eu já ganhei na vida.</p>
+
+      <p>Tudo começou um dia antes do meu aniversário, quando nós dois começamos a nos falar. Tudo foi muito mágico, parece que tudo em nós nos interligava, nossos costumes, nossos gostos e nossos sonhos. Lembro até hoje do nosso primeiro beijo: você tinha me chamado para ficar de jurado naquela festa junina da sua antiga escola. Foi realmente ótimo ficar junto ao seu lado aquele dia. Depois, nós ficamos abraçados por horas e horas, e foi ali que ocorreu o nosso primeiro beijo. Nós dois, naquela hora, estávamos tremendo de vergonha, mas felizes ao mesmo tempo kkk.</p>
+
+      <p>Só vim, por essa mensagem, dizer que você é a pessoa mais incrível que eu já conheci. Nunca deixe de ser essa pessoa descontraída, amada, carinhosa e meiga que você é.</p>
+
+      <p>Te amo muito, meu amor <span class="heart">♡</span></p>
+
+      <div style="text-align: right;">
+        <span class="signature">Gustavo ♡</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== CAPÍTULO IV: APELIDOS ========== -->
+<div class="chapter">
+  <div class="scene-slate"><span class="dot"></span>CENA 05 · ELENCO</div>
+  <h2>Os nomes<br>que eu te chamo</h2>
+</div>
+
+<section class="names-scene">
+  <div class="names-grid">
+    <div class="name-card" data-idx="01">Denguinha</div>
+    <div class="name-card" data-idx="02">Amoreca</div>
+    <div class="name-card" data-idx="03">Amandoca</div>
+    <div class="name-card" data-idx="04">Bebezuda</div>
+    <div class="name-card wide" data-idx="05">Amandinha Gameplays</div>
+  </div>
+</section>
+
+<!-- ========== CAPÍTULO V: LOVES ========== -->
+<div class="chapter">
+  <div class="scene-slate"><span class="dot"></span>CENA 06 · CLOSE</div>
+  <h2>Os detalhes<br>em close</h2>
+  <div class="sub">os detalhes que eu mais gosto em você</div>
+</div>
+
+<section class="loves-scene">
+  <div class="loves-grid">
+    <div class="love-tag" data-num="01">seus olhos</div>
+    <div class="love-tag" data-num="02">seu sorriso</div>
+    <div class="love-tag" data-num="03">seu cabelo</div>
+    <div class="love-tag" data-num="04">seu jeitinho</div>
+    <div class="love-tag" data-num="05">sua voz</div>
+    <div class="love-tag" data-num="06">o jeito que você ri</div>
+    <div class="love-tag" data-num="07">você chegando perto</div>
+    <div class="love-tag" data-num="08">simplesmente você</div>
+  </div>
+</section>
+
+<!-- ========== CREDITS / ENDING ========== -->
+<section class="credits">
+  <div class="fin">FIM</div>
+  <div class="fin-line"></div>
+  <div class="credits-text">
+    <div><span class="label">estrelando</span><span class="value">AMANDA</span></div>
+    <div><span class="label">direção</span><span class="value">GUSTAVO</span></div>
+    <div><span class="label">trilha</span><span class="value">LEONARDO & LEANDRO</span></div>
+    <div><span class="label">rodado em</span><span class="value">MAI 2025 — ABR 2026</span></div>
+    <div><span class="label">duração</span><span class="value">PRA SEMPRE</span></div>
+  </div>
+  <div class="credits-love">te amo, Amanda ♡</div>
+</section>
+
+<script>
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn');
+  const gate = document.getElementById('audioGate');
+  const countdownEl = document.getElementById('countdown');
+  const countdownSequence = ['3', '2', '1'];
+  const countdownTimers = [];
+  let isPlaying = false;
+  document.documentElement.classList.add('gate-open');
+  document.body.classList.add('gate-open');
+
+  function clearCountdownTimers() {
+    countdownTimers.forEach(timeoutId => clearTimeout(timeoutId));
+    countdownTimers.length = 0;
+  }
+
+  function startCountdown() {
+    countdownSequence.forEach((step, index) => {
+      const timeoutId = setTimeout(() => {
+        countdownEl.textContent = step;
+        countdownEl.animate(
+          [
+            { transform: 'scale(0.84)', opacity: 0.35 },
+            { transform: 'scale(1)', opacity: 1 }
+          ],
+          { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
+        if (index === countdownSequence.length - 1) {
+          gate.classList.add('ready');
+        }
+      }, index * 900);
+      countdownTimers.push(timeoutId);
+    });
+  }
+
+  startCountdown();
+
+  function startExperience(withMusic) {
+    clearCountdownTimers();
+    document.documentElement.classList.remove('gate-open');
+    document.body.classList.remove('gate-open');
+    gate.classList.add('hidden');
+    setTimeout(() => gate.style.display = 'none', 800);
+    if (withMusic) {
+      audio.play().then(() => {
+        isPlaying = true;
+        playBtn.textContent = '❚❚';
+      }).catch(e => console.log('blocked', e));
+    }
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      playBtn.textContent = '▶';
+      isPlaying = false;
+    } else {
+      audio.play();
+      playBtn.textContent = '❚❚';
+      isPlaying = true;
+    }
+  });
+
+  // ===== TIMECODE =====
+  const tcEl = document.getElementById('tc');
+  let seconds = 0;
+  setInterval(() => {
+    seconds = (seconds + 1) % 60;
+    tcEl.textContent = seconds.toString().padStart(2, '0');
+  }, 1000);
+
+  // ===== HERO NAME =====
+  const name = 'AMANDA';
+  const heroName = document.getElementById('heroName');
+  name.split('').forEach((ch, i) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = ch;
+    span.style.animationDelay = (1.5 + i * 0.18) + 's';
+    heroName.appendChild(span);
+  });
+
+  // ===== REEL TRACKS =====
+  const photos = [
+    { src: 'fotos/20250531_191731.jpg', label: 'TAKE 01' },
+    { src: 'fotos/IMG-20250531-WA0022.jpg', label: 'TAKE 02' },
+    { src: 'fotos/20250917_153218.jpg', label: 'TAKE 03' },
+    { src: 'fotos/20250917_161120.jpg', label: 'TAKE 04' },
+    { src: 'fotos/20250719_163905.jpg', label: 'TAKE 05' },
+    { src: 'fotos/20250719_163951.jpg', label: 'TAKE 06' },
+    { src: 'fotos/20250727_184203.jpg', label: 'TAKE 07' },
+    { src: 'fotos/20251011_162349.jpg', label: 'TAKE 08' },
+    { src: 'fotos/20251011_162418.jpg', label: 'TAKE 09' },
+    { src: 'fotos/IMG-20250719-WA0009.jpg', label: 'TAKE 10' },
+    { src: 'fotos/IMG-20260411-WA0015.jpg', label: 'TAKE 11' },
+    { src: 'fotos/IMG-20260418-WA0071.jpg', label: 'TAKE 12' },
+    { src: 'fotos/IMG_20260410_184153025_HDR.jpg', label: 'TAKE 13' },
+    { src: 'fotos/IMG_20260410_195358231_PCT.jpg', label: 'TAKE 14' },
+  ];
+
+  function makeFrame(p, idx) {
+    const fr = document.createElement('div');
+    fr.className = 'frame';
+    const num = (idx + 1).toString().padStart(3, '0');
+    if (p.placeholder) {
+      fr.innerHTML = `
+        <div class="frame-placeholder">+ cole<br>uma foto</div>
+        <div class="frame-label">${p.label}</div>
+        <div class="frame-num">FRAME · ${num} / ∞</div>`;
+    } else {
+      fr.innerHTML = `
+        <img src="${p.src}" alt="">
+        <div class="frame-label">${p.label}</div>
+        <div class="frame-num">FRAME · ${num} / ∞</div>`;
+    }
+    return fr;
+  }
+
+  function fillReel(id) {
+    const track = document.getElementById(id);
+    for (let rep = 0; rep < 2; rep++) {
+      photos.forEach((p, i) => track.appendChild(makeFrame(p, i + rep * photos.length)));
+    }
+  }
+  fillReel('reel1');
+  fillReel('reel2');
+
+  // ===== INTERSECTION =====
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('in');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.spotlight .frame, .tl-item').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
